@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Yellowtail&display=swap');
+
+/* ================================================= */
+/* 1. ESTILOS BASE (ESCRITORIO / DEFAULT) */
+/* ================================================= */
+.responsive-navbar {
+    background-color: #ffffff;
+    height: 70px;
+    padding: 0 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+        /* CAMBIOS CLAVE PARA FIJAR LA BARRA ARRIBA */
+    position: fixed; /* Fija la barra respecto a la ventana del navegador */
+    top: 0;          /* La coloca en la parte superior */
+    left: 0;         /* Asegura que inicie desde la izquierda */
+    width: 100%;     /* Hace que ocupe todo el ancho */
+    z-index: 1000;   /* Asegura que esté por encima de todo el contenido */
+}
+
+/* Ocultar el botón y el menú lateral por defecto (Escritorio) */
+.menu-toggle, .side-menu, .close-btn, .menu-overlay {
+    display: none; 
+}
+
+/* Logo (Yellowtail) */
+.nav-logo-center {
+    font-family: 'Yellowtail', cursive; 
+    font-size: 2rem;
+    color: #000000;
+    flex: 0 1 auto;
+    border-left: solid;
+    border-right: solid; 
+    padding: 0 30px; 
+}
+
+/* Enlaces Laterales (Montserrat) - Visible en Escritorio */
+.nav-links-left ,
+.nav-links-right {
+    display: flex; /* MUESTRA los enlaces en Escritorio */
+    gap: 30px; 
+    flex: 1; 
+    font-weight: 700; 
+    font-size: 0.7rem;
+
+}
+
+.nav-links-right 
+{ justify-content: flex-start; 
+  padding-left: 40px; 
+}
+
+.nav-link {
+    color: #f0f0f0;
+    text-decoration: none;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase; 
+    
+    font-family: 'Montserrat', sans-serif;
+    /* ... (estilos de hover) ... */
+}
+
+.nav-links-left{ 
+  justify-content:flex-end;
+  padding-right: 40px; 
+}
+
+
+/* ================================================= */
+/* 2. MEDIA QUERY (MÓVILES: 768px o menos) */
+/* ================================================= */
+@media (max-width: 768px) {
+    
+    /* A. CONFIGURACIÓN DE LA BARRA PRINCIPAL EN MÓVIL */
+    .responsive-navbar {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    
+    /* Ocultamos los enlaces de la barra principal en MÓVIL */
+    .nav-links-left,
+    .nav-links-right {
+        display: none; 
+    }
+    
+    /* Recolocamos el logo en el centro de la barra MÓVIL */
+    .nav-logo-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0;
+        font-size: 2.5rem; /* Hacemos el logo un poco más pequeño para móviles */
+    }
+    
+    /* B. MOSTRAR EL BOTÓN DE MENÚ */
+    .menu-toggle {
+        display: block; /* MUESTRA el botón solo en MÓVILES */
+        margin-left: auto; /* Mueve el botón a la derecha */
+        z-index: 1001;
+        /* Estilos del botón hamburguesa */
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #f0f0f0;
+        margin: 4px 0;
+    }
+
+    /* C. MENÚ LATERAL (OFF-CANVAS) */
+    .side-menu {
+        display: flex; /* Muestra el contenedor del menú */
+        flex-direction: column;
+        width: 0;
+        height: 100%;
+        position: fixed;
+        z-index: 999; 
+        top: 0;
+        right: 0;
+        background-color: #1a1a1a; 
+        transition: 0.5s;
+        padding-top: 80px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .side-menu.open {
+        width: 250px; 
+    }
+
+    .menu-link {
+        /* Estilos de los enlaces del menú lateral (Montserrat) */
+        display: block;
+        padding: 15px 25px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        color: #f0f0f0; 
+        text-transform: uppercase;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .close-btn, .menu-overlay {
+        display: block; /* Muestra el botón de cierre y el overlay */
+        /* ... (estilos del botón de cierre y overlay del código anterior) ... */
+    }
+    .close-btn {
+        position: absolute; top: 10px; right: 25px; font-size: 36px; background: none; border: none; color: #f0f0f0; cursor: pointer;
+    }
+    .menu-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 998;
+    }
+}
