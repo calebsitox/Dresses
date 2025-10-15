@@ -17,7 +17,7 @@ function Image(){
           <div className="hero-content">
             {/* Título en la parte superior-central */}
             <h1 className="hero-title">
-              Descubre Moda Artesanal y de Alta Costura Online{" "}
+              Descubre Moda Artesanal <br /> y <br />de Alta Costura Online{" "}
             </h1>
             <h2 className="hero-subtittle">
               Piezas únicas de diseño atemporal. Explora nuestra colección

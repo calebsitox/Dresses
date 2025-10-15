@@ -58,13 +58,14 @@
   font-family: 'Yellowtail', cursive;
   font-size: 4.5rem; /* Tamaño para escritorio */
   color: #fff;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  position: absolute; 
+  margin-top: 0;  
   top: 20%; 
   left: 50%;
-  transform: translateX(-50%);
+
   width: 90%; /* Limita el ancho para que no se desborde */
+
 }
 
 .hero-subtittle{
