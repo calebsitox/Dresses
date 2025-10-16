@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Yellowtail&display=swap');
+
+/* ================================== */
+/* ESTRUCTURA BASE (Desktop) */
+/* ================================== */
+.about-section {
+    min-height: 70vh; /* Para que la sección sea visible y haya espacio para scroll */
+    padding: 80px 5%;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    background-color: #f0f0f0; /* Fondo claro para contrastar con la NavBar oscura */
+    color: #1a1a1a;
+    display: flex; /* Habilita el layout de dos columnas */
+    gap: 50px;
+    align-items: center;
+    max-width: 1400px; /* Limita el ancho total para pantallas muy grandes */
+    margin: 0 auto; /* Centra la sección en la página */
+}
+
+
+/* Contenedores de Columna */
+.story-text-container,
+.story-media {
+    flex: 1 1 50%; /* Ambas columnas toman el mismo espacio */
+    padding: 20px;
+}
+
+.about-section.reverse-layout {
+    flex-direction: row-reverse; 
+}
+/* ================================== */
+/* TIPOGRAFÍA */
+/* ================================== */
+.story-title {
+    font-family: 'Yellowtail', cursive;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: #000000; /* Color de acento */
+    margin-bottom: 30px;
+}
+
+.story-paragraph {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Botón CTA */
+.story-cta-button {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #1a1a1a; /* Botón oscuro */
+    color: #f0f0f0; /* Texto claro */
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.story-cta-button:hover {
+    background-color: #333;
+}
+
+/* Media */
+.process-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ================================== */
+/* MEDIA QUERY (MOBILE) */
+/* ================================== */
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column; /* Apila las columnas verticalmente */
+        padding: 40px 5%;
+    }
+
+    .story-title {
+        font-size: 2.5rem;
+    }
+}

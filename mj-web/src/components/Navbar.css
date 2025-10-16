@@ -91,7 +91,7 @@
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        padding: 0;
+        padding: 10px;
         font-size: 2.5rem; /* Hacemos el logo un poco más pequeño para móviles */
     }
     

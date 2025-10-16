@@ -1,0 +1,41 @@
+/* Footer.css */
+
+.app-footer {
+    /* 1. Base y Color */
+    background-color: #1a1a1a; /* Color de fondo oscuro (ejemplo) */
+    color: #f0f0f0;            /* Color de texto claro */
+    padding: 20px 5%;
+    width: 100%;
+    box-sizing: border-box; /* Incluye padding en el width */
+    
+    /* 2. Alineación del Contenido */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;
+    border-top: 1px solid #333; /* Separador opcional */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center;
+    max-width: 1400px; /* Alinea con el max-width de tu .about-section */
+    width: 100%;
+}
+
+.footer-copyright {
+    font-size: 0.9rem;
+    margin: 0; /* Elimina el margen por defecto del <p> */
+    text-align: center;
+}
+
+/* Opcional: Estilos para enlaces si los añades */
+.footer-links a {
+    color: #f0f0f0;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
