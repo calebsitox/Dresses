@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ function Navbar() {
 
         {/* Grupo de enlaces a la izquierda (OCULTO EN MÓVILES) */}
         <div className="nav-links-left">
-          <a href="#home" className="nav-link">Inicio</a>
+          <Link to="/" className="nav-link">Inicio</Link>
           <a href="#about" className="nav-link">Acerca de</a>
         </div>
 
@@ -33,7 +34,7 @@ function Navbar() {
         
         {/* Grupo de enlaces a la derecha (OCULTO EN MÓVILES) */}
         <div className="nav-links-right">
-          <a href="#services" className="nav-link">Servicios</a>
+          <Link to="/coleccion" className="nav-link">Colección</Link>
           <a href="#contact" className="nav-link">Contacto</a>
         </div>
       </nav>

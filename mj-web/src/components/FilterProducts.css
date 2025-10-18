@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Yellowtail&display=swap');
+
+/* --- Filtro y Estructura de Posicionamiento (25% / 75%) --- */
+
+.filter-panel {
+    /* POSICIONAMIENTO: Asignamos el 25% del ancho */
+    flex: 0 0 200px; /* Ancho fijo de 280px para desktop */
+    
+    /* ELEGANCIA Y LAYOUT */
+    padding: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 8px; /* Bordes redondeados elegantes */
+    background-color: #fcfcfc;
+
+    
+    /* Asegura que el contenido siga fluyendo si es más alto */
+    position: sticky;
+    height: 100%;
+    top: 100px; /* Permite que el panel se mantenga visible al hacer scroll */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto; /* Scroll interno si hay muchos filtros */
+}
+
+/* --- Estilos de Tipografía y Opciones --- */
+
+.filter-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; 
+    
+    font-family: 'Montserrat', sans-serif;
+}
+
+.filter-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 5px;
+}
+
+.toggle-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease; /* Transición rápida para el ícono */
+    color: #555;
+}
+
+.toggle-icon.open {
+    transform: rotate(180deg); /* La flecha mira hacia arriba cuando está abierto */
+}
+
+.filter-content {
+
+    transition: max-height 0.5s ease-out, opacity 0.4s ease;
+    overflow: hidden; /* Oculta cualquier contenido que se salga */
+}
+.filter-content.closed {
+    max-height: 0; /* Totalmente colapsado */
+    opacity: 0;
+    padding: 0;
+}
+
+/* Estado ABIERTO */
+.filter-content.open {
+
+    max-height: 500px; 
+    opacity: 1;
+    padding-bottom: 15px;
+}
+
+.filter-category {
+    margin-bottom: 25px;
+}
+
+.filter-category-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #333;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    text-transform: uppercase; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+.filter-checkbox {
+    margin-right: 10px;
+    margin-left: 20px;
+    accent-color: #1a1a1a; /* Color principal de tu marca */
+    transform: scale(1.1);
+}
+
+.filter-label {
+    font-size: 0.95rem;
+    color: #555;
+    cursor: pointer;
+    user-select: none; /* Evita selección de texto al hacer clic */
+}
+
+
+/* --- RESPONSIVIDAD: Se apila en móvil --- */
+
+@media (max-width: 992px) {
+    .filter-panel {
+        /* 1. Posicionamiento Fijo (sale del flujo de la página) */
+        position: fixed; 
+        top: 70px; /* Altura de tu Navbar fija */
+        left: 0;
+        
+        /* 2. Dimensiones del Panel Desplegable */
+        height: calc(100vh - 70px); /* Altura completa menos la Navbar */
+        width: 300px; /* Un ancho fijo para el panel deslizante */
+        max-width: 90%; /* Máximo el 90% para no saturar pantallas muy pequeñas */
+        
+        /* 3. Apilamiento */
+        z-index: 990; /* Por debajo de la Navbar (1000) pero por encima de las tarjetas */
+        background-color: #ffffff; /* Fondo sólido para que oculte el contenido de detrás */
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+        
+        /* 4. ANIMACIÓN: La clave del deslizamiento */
+        transition: transform 0.5s ease; /* Transición suave de 0.5s */
+        transform: translateX(-100%); /* Estado inicial: Oculto (fuera de la pantalla a la izquierda) */
+    }
+    .toggle-icon {
+        color: #1a1a1a; /* Color oscuro asegurado */
+    }
+    
+    /* Estado ABIERTO */
+    .filter-panel.open {
+        transform: translateX(0); /* Estado final: Deslizado a la posición visible (0) */
+    }
+    
+    /* Opcional: El contenido del filtro debe tener scroll si es muy largo */
+    .filter-content {
+        overflow-y: auto;
+    }
+}

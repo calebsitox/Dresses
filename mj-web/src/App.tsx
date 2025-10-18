@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Routes, Route } from 'react-router-dom';
 import Navbar from "./components/Nabvar"
 import Image from "./components/Image"
 import AboutSection from "./components/History"
+import ProductPage from "./components/ProductPage";
 import Footer from "./components/Footer"
 
 
@@ -66,58 +68,75 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
 
-      <Image/>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Image />
 
-      <AboutSection ref={sectionRefs.current[0]}  opacity={opacityStates[0]} 
-        tittle=" Nuestra Esencia:
-        Moda Lenta, Corazón Artesanal." 
-        message="Todo surge de la necesidad de volver a valorar el trabajo lento y la
+              <AboutSection
+                ref={sectionRefs.current[0]}
+                opacity={opacityStates[0]}
+                tittle=" Nuestra Esencia:
+        Moda Lenta, Corazón Artesanal."
+                message="Todo surge de la necesidad de volver a valorar el trabajo lento y la
         calidad. Cada pieza es un manifiesto de la **Moda Ética**, donde el
-        diseño atemporal se encuentra con la responsabilidad sostenible." 
-        message2="Explora la exclusividad de nuestra **producción limitada** y
+        diseño atemporal se encuentra con la responsabilidad sostenible."
+                message2="Explora la exclusividad de nuestra **producción limitada** y
         descubre cómo cada puntada cuenta la historia de una artesanía hecha
-        a mano en [Tu Ciudad]." 
-        sectionNumber={0} 
-        image=""
-        button="VER MANIFIESTO COMPLETO"
-        isReversed={false}
-        />
+        a mano en [Tu Ciudad]."
+                sectionNumber={0}
+                image=""
+                button="VER MANIFIESTO COMPLETO"
+                isReversed={false}
+              />
 
-      <AboutSection ref={sectionRefs.current[1]}  opacity={opacityStates[1]} 
-        tittle="Colección Exclusiva:
-            Raíces Atemporales" 
-        message="Presentamos nuestra primera colección cápsula, inspirada en la
+              <AboutSection
+                ref={sectionRefs.current[1]}
+                opacity={opacityStates[1]}
+                tittle="Colección Exclusiva:
+            Raíces Atemporales"
+                message="Presentamos nuestra primera colección cápsula, inspirada en la
             **arquitectura orgánica** y fabricada con **algodón pima orgánico**
             certificado. Cada costura está pensada para la longevidad y la
-            comodidad." 
-        message2="Los tonos neutros y la textura única de la tela son perfectos para
-            un **armario cápsula** elegante y consciente. ¡Stock limitado!" 
-        sectionNumber={1} 
-        image="" 
-        button="VER LA COLECCIÓN AHORA"
-        isReversed={true}
+            comodidad."
+                message2="Los tonos neutros y la textura única de la tela son perfectos para
+            un **armario cápsula** elegante y consciente. ¡Stock limitado!"
+                sectionNumber={1}
+                image=""
+                button="VER LA COLECCIÓN AHORA"
+                isReversed={true}
+              />
+
+              <AboutSection
+                ref={sectionRefs.current[2]}
+                opacity={opacityStates[2]}
+                tittle=" Nuestra Esencia:
+        Moda Lenta, Corazón Artesanal."
+                message="Todo surge de la necesidad de volver a valorar el trabajo lento y la
+        calidad. Cada pieza es un manifiesto de la **Moda Ética**, donde el
+        diseño atemporal se encuentra con la responsabilidad sostenible."
+                message2="Explora la exclusividad de nuestra **producción limitada** y
+        descubre cómo cada puntada cuenta la historia de una artesanía hecha
+        a mano en [Tu Ciudad]."
+                sectionNumber={2}
+                image=""
+                button="VER MANIFIESTO COMPLETO"
+                isReversed={false}
+              />
+            </>
+          }
         />
 
+        <Route path="/coleccion" element={<ProductPage />} />
+      </Routes>
 
-      <AboutSection ref={sectionRefs.current[2]}  opacity={opacityStates[2]}  
-        tittle=" Nuestra Esencia:
-        Moda Lenta, Corazón Artesanal." 
-        message="Todo surge de la necesidad de volver a valorar el trabajo lento y la
-        calidad. Cada pieza es un manifiesto de la **Moda Ética**, donde el
-        diseño atemporal se encuentra con la responsabilidad sostenible." 
-        message2="Explora la exclusividad de nuestra **producción limitada** y
-        descubre cómo cada puntada cuenta la historia de una artesanía hecha
-        a mano en [Tu Ciudad]." 
-        sectionNumber={2} 
-        image=""
-        button="VER MANIFIESTO COMPLETO"
-        isReversed={false}/>
-
-    <Footer/>
+      <Footer />
     </>
-  )
+  );
 }
 
 export default App

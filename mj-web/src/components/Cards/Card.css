@@ -1,0 +1,155 @@
+/* ProductCard.css (o similar) */
+.product-page {
+    /* 1. Habilita el layout de columnas */
+    display: flex; 
+    
+    /* 2. Solución al Navbar Fijo: Empuja el contenido hacia abajo */
+    /* La Navbar mide 70px. Usamos padding-top para crear ese espacio. */
+    /* (Mantenemos los 60px de padding que habíamos definido antes + 70px de la barra) */
+    padding-top: calc(70px + 60px); 
+    
+    /* Espacio entre el filtro y la cuadrícula */
+    gap: 40px; 
+    
+    /* Alineación y centrado del contenedor */
+    align-items: flex-start;
+    padding-left: 2%;
+    padding-right: 2%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-grid-container {
+    flex: 1;
+    
+}
+
+/* La Cuadrícula: La clave para 4 columnas con espacio entre ellas */
+.product-grid {
+    display: grid;
+    
+    /* grid-template-columns: repeat(4, 1fr); 
+       Esto crea exactamente 4 columnas de ancho igual (1fr). */
+    grid-template-columns: repeat(4, 1fr); 
+    
+    /* Separación uniforme entre las tarjetas */
+    gap: 25px; 
+}
+
+/* --- Responsividad para un diseño limpio --- */
+
+@media (max-width: 1200px) {
+    .product-grid {
+        /* 3 columnas en pantallas de laptop */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+.product-card {
+    /* El enlace contenedor principal */
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: #1a1a1a;
+    background-color: #ffffff;
+    
+    /* Elegancia: Bordes redondeados y sombra sutil */
+    border-radius: 10px; 
+    overflow: hidden; /* Corta el contenido extra, crucial para la imagen */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra sutil y elevada */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* SEO/Accesibilidad: Asegura que toda la tarjeta se enfoca */
+    cursor: pointer;
+}
+
+/* Efecto Hover */
+.product-card:hover {
+    transform: translateY(-5px); /* Se eleva ligeramente */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más fuerte */
+}
+
+/* --- Imagen --- */
+
+.product-image-wrapper {
+
+    /* Mantiene la imagen cuadrada (opcional, si las fotos son cuadradas) */
+    aspect-ratio: 1 / 1; 
+    overflow: hidden;
+}
+
+.product-image {
+
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto en la imagen al hacer hover en la tarjeta */
+.product-card:hover .product-image {
+    transform: scale(1.05); /* Zoom sutil */
+}
+
+/* --- Detalles --- */
+
+.product-details {
+    padding: 15px 15px 10px;
+}
+
+.product-title {
+    /* Semántica H3 para SEO */
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Puntos suspensivos si el título es largo */
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #555; /* Color sutil para el precio */
+    margin: 0;
+}
+
+/* --- Botón CTA --- */
+
+.product-cta-button {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-cta-button:hover {
+    background-color: #333333;
+}
+
+@media (max-width: 1200px) {
+    .product-grid {
+        /* 3 columnas en pantallas de laptop */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        /* 2 columnas en tablets */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; /* Reducimos el espacio un poco en tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .product-grid {
+        /* 1 columna en móvil, para que la tarjeta ocupe todo el ancho */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+}

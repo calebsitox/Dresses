@@ -10,9 +10,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: fixed;
 
         /* CAMBIOS CLAVE PARA FIJAR LA BARRA ARRIBA */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed; /* Fija la barra respecto a la ventana del navegador */
     top: 0;          /* La coloca en la parte superior */
     left: 0;         /* Asegura que inicie desde la izquierda */
