@@ -1,0 +1,182 @@
+/* ProductDetailPage.css */
+
+/* ---------------------------------------------------- */
+/* 1. LAYOUT PRINCIPAL (Dos Columnas) */
+/* ---------------------------------------------------- */
+
+.product-detail-page-wrapper {
+    /* Padding para despejar la Navbar fija */
+    padding-top: 100px; 
+    padding-bottom: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-detail-layout {
+    display: flex;
+    gap: 50px; /* Espacio entre las dos columnas */
+    align-items: flex-start; /* Alinea las columnas arriba */
+}
+
+/* --- Galería (Columna Izquierda) --- */
+.product-gallery {
+    flex: 1; /* Ocupa la mitad del espacio */
+    max-width: 50%;
+}
+
+.main-image-container {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.thumbnails-container {
+    display: flex;
+    gap: 10px;
+}
+
+.thumbnail-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.thumbnail-image:hover, .thumbnail-image.active {
+    border-color: #1a1a1a;
+}
+
+/* --- Información (Columna Derecha) --- */
+.product-info {
+    flex: 1; /* Ocupa la otra mitad del espacio */
+    padding-top: 20px;
+}
+
+.product-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+
+/* ---------------------------------------------------- */
+/* 2. CONTROLES DE SELECCIÓN */
+/* ---------------------------------------------------- */
+
+.product-selection-controls {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+.control-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* Botones de Talla */
+.size-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.size-button {
+    background: none;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.size-button:hover, .size-button.selected {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+
+/* Área de Compra */
+.purchase-area {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.quantity-input {
+    width: 70px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-to-cart-button {
+    flex: 1; /* Ocupa el espacio restante */
+    background-color: #1a1a1a;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+    background-color: #333;
+}
+
+
+/* ---------------------------------------------------- */
+/* 3. RESPONSIVIDAD (Apilar en Móvil) */
+/* ---------------------------------------------------- */
+
+@media (max-width: 900px) {
+    .product-detail-layout {
+        flex-direction: column; /* Apilar imagen y detalles */
+    }
+    
+    .product-gallery, .product-info {
+        max-width: 100%;
+        flex: none;
+    }
+    
+    .product-info {
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .purchase-area {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .quantity-input {
+        width: 100%;
+    }
+}

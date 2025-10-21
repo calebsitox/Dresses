@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Yellowtail&display=swap');
+
 /* ProductCard.css (o similar) */
 .product-page {
     /* 1. Habilita el layout de columnas */
@@ -91,32 +93,36 @@
 
 /* --- Detalles --- */
 
-.product-details {
+.card-details {
     padding: 15px 15px 10px;
 }
 
-.product-title {
+.card-title {
     /* Semántica H3 para SEO */
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0 0 5px 0;
     white-space: nowrap;
     overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
     text-overflow: ellipsis; /* Puntos suspensivos si el título es largo */
 }
 
-.product-price {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #555; /* Color sutil para el precio */
+.card-price {
+    font-size: 0.8rem;
+    color: #000000; /* Color sutil para el precio */
     margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase; 
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 /* --- Botón CTA --- */
 
 .product-cta-button {
-    background-color: #1a1a1a;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
     padding: 10px;
     border: none;
     width: 100%;
@@ -125,6 +131,10 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase; 
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 .product-cta-button:hover {

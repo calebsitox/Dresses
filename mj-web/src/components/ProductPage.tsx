@@ -1,11 +1,11 @@
 import FilterProducts from "./FilterProducts"
-import { useState } from 'react';
+//import { useState } from 'react';
 import ProductGrid from "./ProductGrid"
 import "./Cards/Card.css"
 
 function ProductPage (){
 
-      const [activeFilters, setActiveFilters] = useState({});
+    //TODO for Filters const [activeFilters, setActiveFilters] = useState({});
 
     const handleFilterChange = (category: string, value: string, isChecked: boolean) => {
     //TODO Aquí irá la lógica para actualizar el estado centralizado

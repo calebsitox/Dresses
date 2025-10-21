@@ -4,6 +4,7 @@ import Navbar from "./components/Nabvar"
 import Image from "./components/Image"
 import AboutSection from "./components/History"
 import ProductPage from "./components/ProductPage";
+import ProductDetailPage from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Footer"
 
 
@@ -132,6 +133,8 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
         />
 
         <Route path="/coleccion" element={<ProductPage />} />
+
+        <Route path="/producto/:productId" element={<ProductDetailPage />} />
       </Routes>
 
       <Footer />
