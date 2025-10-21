@@ -1,5 +1,5 @@
 import './Image.css'
-import videoSource from '../assets/video1.mp4';
+import videoSource from '../../assets/video1.mp4';
 
 function Image(){
 

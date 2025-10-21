@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
+import ShopCart from './ShopCart';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +37,10 @@ function Navbar() {
         <div className="nav-links-right">
           <Link to="/coleccion" className="nav-link">Colección</Link>
           <a href="#contact" className="nav-link">Contacto</a>
+        </div>
+        <div className="login-shopcart-container">
+         
+          <ShopCart totalItems={1} />
         </div>
       </nav>
 

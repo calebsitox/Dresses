@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from 'react-router-dom';
-import Navbar from "./components/Nabvar"
-import Image from "./components/Image"
-import AboutSection from "./components/History"
+import Navbar from "./components/Principal/Nabvar"
+import Image from "./components/Principal/Image"
+import AboutSection from "./components/Principal/History"
 import ProductPage from "./components/ProductPage";
 import ProductDetailPage from "./components/ProductDetail/ProductDetail";
-import Footer from "./components/Footer"
+import Footer from "./components/Principal/Footer"
 
 
 function App() {

@@ -1,0 +1,35 @@
+/* ShopCart.css */
+
+.shopcart-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.shopcart-link:hover {
+    color: #007bff; /* Color de énfasis al pasar el ratón */
+}
+
+/* 🔑 La clave: relative para posicionar el badge */
+.shopcart-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    color: black;
+}
+
+/* 🔑 El Contador (Badge) */
+
+/* Opcional: Ocultar el texto en móvil para ahorrar espacio */
+@media (max-width: 600px) {
+    .cart-text {
+        display: none;
+    }
+}
