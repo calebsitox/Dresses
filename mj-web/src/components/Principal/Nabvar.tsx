@@ -2,10 +2,12 @@ import { useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import ShopCart from './ShopCart';
+import { useCart } from './CartContext';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const { totalItems } = useCart();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -40,7 +42,7 @@ function Navbar() {
         </div>
         <div className="login-shopcart-container">
          
-          <ShopCart totalItems={1} />
+          <ShopCart totalItems={totalItems} />
         </div>
       </nav>
 

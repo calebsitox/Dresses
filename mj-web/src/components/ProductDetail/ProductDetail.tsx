@@ -2,15 +2,17 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './ProductDetail.css';
+import { useCart } from '../Principal/CartContext';
+import { useState } from 'react';
 // import useProductDetails from './useProductDetails'; // Asume este hook
 
 const ProductDetailPage: React.FC = () => {
     // 🔑 Capturamos el ID dinámico de la URL (ej: 'vestido-luna')
     const { productId } = useParams<{ productId: string }>();
-
+    const { addToCart } = useCart();
     // 🚧 Lógica: Aquí llamarías a la API para obtener los datos
     // const { product, isLoading } = useProductDetails(productId); 
-    
+    const [quantity, setQuantity] = useState(1);
     // Datos de MOCK para la estructura visual
     const product = {
         title: "Vestido Orgánico Luna",
@@ -23,76 +25,99 @@ const ProductDetailPage: React.FC = () => {
     
     // if (isLoading) return <div>Cargando detalles del producto...</div>;
     // if (!product) return <div>Producto no encontrado.</div>;
-
+    const handleAddToCart = () => {
+        
+        // Creamos el objeto exactamente como lo espera CartContext
+        const itemForCart = {
+            id: productId!, // El ID de la URL
+            title: product!.title, 
+            // ⚠️ Convertir precio a número si es string (ej: "€149.99" -> 149.99)
+            price: parseFloat(product!.price.replace('€', '')), 
+            quantity: quantity, // Usamos la cantidad seleccionada por el usuario
+        };
+        
+        // 4. Llamada a la función global que actualiza el estado del carrito
+        addToCart(itemForCart); 
+        
+        //console.log(`✅ ¡${quantity} unidad(es) de ${itemForCart.title} añadidas al carrito!`);
+    };
 
     return (
-        <main className="product-detail-page-wrapper">
-            
-            {/* 1. Contenedor de las dos columnas: Imagen y Detalles */}
-            <div className="product-detail-layout">
-                
-                {/* 2. COLUMNA IZQUIERDA: Galería de Imágenes */}
-                <div className="product-gallery">
-                    <div className="main-image-container">
-                        <img src={product.mainImage} alt={product.title} className="main-product-image" />
-                    </div>
-                    
-                    <div className="thumbnails-container">
-                        {product.thumbnails.map((img, index) => (
-                            <img 
-                                key={index} 
-                                src={img} 
-                                alt={`Vista ${index + 1}`} 
-                                className="thumbnail-image" 
-                                // onClick={() => setMainImage(img)}
-                            />
-                        ))}
-                    </div>
-                </div>
-
-                {/* 3. COLUMNA DERECHA: Información y Controles de Compra */}
-                <div className="product-info">
-                    
-                    <h1 className="product-title">{product.title}</h1>
-                    <p className="product-price">{product.price}</p>
-                    
-                    <div className="product-selection-controls">
-                        
-                        {/* Control de Talla */}
-                        <div className="size-selector">
-                            <label className="control-label">Talla:</label>
-                            <div className="size-options">
-                                {product.availableSizes.map(size => (
-                                    <button key={size} className="size-button">
-                                        {size}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Botón y Cantidad */}
-                        <div className="purchase-area">
-                            <input type="number" min="1" defaultValue="1" className="quantity-input" />
-                            <button className="add-to-cart-button">
-                                Añadir al Carrito
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div className="product-description-area">
-                        <h3 className="description-title">Descripción</h3>
-                        <p className="product-description">{product.description}</p>
-                    </div>
-
-                </div>
+      <main className="product-detail-page-wrapper">
+        {/* 1. Contenedor de las dos columnas: Imagen y Detalles */}
+        <div className="product-detail-layout">
+          {/* 2. COLUMNA IZQUIERDA: Galería de Imágenes */}
+          <div className="product-gallery">
+            <div className="main-image-container">
+              <img
+                src={product.mainImage}
+                alt={product.title}
+                className="main-product-image"
+              />
             </div>
-            
-            {/* 4. Sección de Productos Relacionados (opcional) */}
-            <div className="related-products">
-                {/* Aquí iría el componente de la cuadrícula de productos relacionados */}
-                <h2>Productos Relacionados</h2>
+
+            <div className="thumbnails-container">
+              {product.thumbnails.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Vista ${index + 1}`}
+                  className="thumbnail-image"
+                  // onClick={() => setMainImage(img)}
+                />
+              ))}
             </div>
-        </main>
+          </div>
+
+          {/* 3. COLUMNA DERECHA: Información y Controles de Compra */}
+          <div className="product-info">
+            <h1 className="product-title">{product.title}</h1>
+            <p className="product-price">{product.price}</p>
+
+            <div className="product-selection-controls">
+              {/* Control de Talla */}
+              <div className="size-selector">
+                <label className="control-label">Talla:</label>
+                <div className="size-options">
+                  {product.availableSizes.map((size) => (
+                    <button key={size} className="size-button">
+                      {size}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Botón y Cantidad */}
+              <div className="purchase-area">
+                <input
+                  type="number"
+                  min="1"
+                  value={quantity}
+                  onChange={(e) => setQuantity(Number(e.target.value))}
+                  className="quantity-input"
+                />
+                <button
+                  className="add-to-cart-button"
+                  onClick={handleAddToCart}
+                >
+                  Añadir al Carrito
+                </button>
+              </div>
+            </div>
+
+            <div className="product-description-area">
+              <h3 className="description-title">Descripción</h3>
+              <p className="product-description">{product.description}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Sección de Productos Relacionados (opcional) */}
+        <div className="related-products">
+          {/* Aquí iría el componente de la cuadrícula de productos relacionados */}
+          <h2>Productos Relacionados</h2>
+        </div>
+      </main>
     );
 };
 

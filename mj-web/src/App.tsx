@@ -6,6 +6,8 @@ import AboutSection from "./components/Principal/History"
 import ProductPage from "./components/ProductPage";
 import ProductDetailPage from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Principal/Footer"
+import CartPage from "./components/Principal/CartPage";
+import  {CartContext, CartProvider} from './components/Principal/CartContext'; // Asegúrate de la ruta correcta
 
 
 function App() {
@@ -69,6 +71,7 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
 
   return (
     <>
+    <CartProvider>
       <Navbar />
 
       <Routes>
@@ -135,9 +138,14 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
         <Route path="/coleccion" element={<ProductPage />} />
 
         <Route path="/producto/:productId" element={<ProductDetailPage />} />
+
+        <Route path="/cart" element={<CartPage />} />
+
       </Routes>
 
       <Footer />
+      </CartProvider>
+
     </>
   );
 }

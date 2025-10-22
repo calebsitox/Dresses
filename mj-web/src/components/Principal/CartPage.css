@@ -1,0 +1,109 @@
+/* CartPage.css */
+
+.cart-page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 50px;
+}
+
+/* 🔑 Diseño de dos columnas para Escritorio */
+.cart-layout {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.cart-items-list {
+    flex: 3; /* Ocupa más espacio */
+}
+
+.order-summary-box {
+    flex: 1; /* Ocupa menos espacio */
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* --- Estilo de cada Artículo del Carrito --- */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Ocupa el espacio central */
+}
+
+.item-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.item-price {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.item-subtotal {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+/* --- Resumen y Botón de Pago --- */
+.summary-row, .summary-total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+.summary-total-row {
+    border-top: 2px solid #ccc;
+    margin-top: 10px;
+    padding-top: 15px;
+    font-size: 1.2rem;
+}
+
+.checkout-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #333;
+}
+
+/* --- Media Query para Móvil (Apilar Columnas) --- */
+@media (max-width: 800px) {
+    .cart-layout {
+        flex-direction: column;
+    }
+    .order-summary-box {
+        order: -1; /* Mueve el resumen al inicio en móvil */
+        margin-bottom: 20px;
+    }
+}
