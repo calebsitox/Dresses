@@ -10,17 +10,6 @@
     transition: color 0.2s;
 }
 
-.shopcart-link:hover {
-    color: #007bff; /* Color de énfasis al pasar el ratón */
-}
-
-/* 🔑 La clave: relative para posicionar el badge */
-.shopcart-icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
 .cart-icon {
     color: black;
 }
