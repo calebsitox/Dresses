@@ -3,6 +3,7 @@ import './Navbar.css';
 import { Link } from 'react-router-dom';
 import ShopCart from './ShopCart';
 import { useCart } from './CartContext';
+import LoginLink from './Login/Login';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,8 +42,8 @@ function Navbar() {
           <a href="#contact" className="nav-link">Contacto</a>
         </div>
         <div className="login-shopcart-container">
-         
           <ShopCart totalItems={totalItems} />
+          <LoginLink />
         </div>
       </nav>
 
@@ -54,6 +55,9 @@ function Navbar() {
         <a href="#about" className="menu-link" onClick={toggleMenu}>Acerca de</a>
         <a href="#services" className="menu-link" onClick={toggleMenu}>Servicios</a>
         <a href="#contact" className="menu-link" onClick={toggleMenu}>Contacto</a>
+        <div className="login-shopcart-container">
+          <ShopCart totalItems={totalItems} />
+        </div>
       </div>
       
       {isOpen && <div className="menu-overlay" onClick={toggleMenu}></div>}

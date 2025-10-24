@@ -7,7 +7,7 @@ import ProductPage from "./components/ProductPage";
 import ProductDetailPage from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Principal/Footer"
 import CartPage from "./components/Principal/CartPage";
-import  {CartContext, CartProvider} from './components/Principal/CartContext'; // Asegúrate de la ruta correcta
+import  { CartProvider} from './components/Principal/CartContext'; // Asegúrate de la ruta correcta
 
 
 function App() {

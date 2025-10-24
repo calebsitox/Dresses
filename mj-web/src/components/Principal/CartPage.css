@@ -97,6 +97,12 @@
     background-color: #333;
 }
 
+.login-shopcart-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 /* --- Media Query para Móvil (Apilar Columnas) --- */
 @media (max-width: 800px) {
     .cart-layout {
