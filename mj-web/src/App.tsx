@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from 'react-router-dom';
-import Navbar from "./components/Principal/Nabvar"
+import Navbar from "./components/Principal/Navbar"
 import Image from "./components/Principal/Image"
 import AboutSection from "./components/Principal/History"
-import ProductPage from "./components/ProductPage";
+import ProductPage from "./components/ProductDetail/ProductPage";
 import ProductDetailPage from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Principal/Footer"
 import CartPage from "./components/Principal/CartPage";

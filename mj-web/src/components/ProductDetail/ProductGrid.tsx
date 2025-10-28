@@ -1,7 +1,7 @@
 
 import React from 'react';
-import ProductCard from './Cards/Card'; 
-import "./Cards/Card.css"
+import ProductCard from '../Cards/Card'; 
+import "../Cards/Card.css"
 
 // Definición de la interfaz de datos
 interface Product {
