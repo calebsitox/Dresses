@@ -40,10 +40,11 @@ function Navbar() {
         <div className="nav-links-right">
           <Link to="/coleccion" className="nav-link">Colección</Link>
           <a href="#contact" className="nav-link">Contacto</a>
-        </div>
+        
         <div className="login-shopcart-container">
           <ShopCart totalItems={totalItems} />
           <LoginLink />
+        </div>
         </div>
       </nav>
 

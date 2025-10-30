@@ -21,6 +21,13 @@
     z-index: 1000;   /* Asegura que esté por encima de todo el contenido */
 }
 
+.login-shopcart-container{
+    display:flex;
+    align-items:end;
+    margin-left: auto;
+    gap:20px;
+}
+
 /* Ocultar el botón y el menú lateral por defecto (Escritorio) */
 .menu-toggle, .side-menu, .close-btn, .menu-overlay {
     display: none; 
