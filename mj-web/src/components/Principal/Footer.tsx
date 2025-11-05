@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         <footer className="app-footer">
             <div className="footer-content">
                 <p className="footer-copyright">
-                    &copy; {currentYear} [Maria Jose Castaño Serna]. Todos los derechos reservados.
+                    &copy; {currentYear} Maria Jose Castaño Serna. Todos los derechos reservados.
                 </p>
                 {/* Opcional: Puedes añadir enlaces, redes sociales o información adicional aquí */}
                 <div className="footer-links">
