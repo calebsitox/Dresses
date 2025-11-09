@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Loginpage.css';
+import videoSource from '../../assets/video2.mp4';
+import SocialLoginButtons from './SocialLoginButtons';
 
 const LoginPage: React.FC = () => {
     // Estados locales para los campos del formulario
@@ -41,6 +43,10 @@ const LoginPage: React.FC = () => {
 
     return (
         <main className="login-page-wrapper">
+                        <video className="video-background" autoPlay loop muted>
+                            <source src={videoSource} type="video/mp4" />
+                            Tu navegador no soporta el tag de video.
+                        </video>
             <div className="login-container">
                 <h1 className="login-title">Iniciar Sesión</h1>
                 
@@ -80,6 +86,7 @@ const LoginPage: React.FC = () => {
                         ACCEDER
                     </button>
                 </form>
+                <SocialLoginButtons />
 
                 <p className="register-link-text">
                     ¿Aún no tienes cuenta? <Link to="/register" className="register-link">Regístrate</Link>

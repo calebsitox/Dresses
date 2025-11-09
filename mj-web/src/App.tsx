@@ -7,7 +7,8 @@ import ProductPage from "./components/ProductDetail/ProductPage";
 import ProductDetailPage from "./components/ProductDetail/ProductDetail";
 import Footer from "./components/Principal/Footer"
 import CartPage from "./components/Principal/CartPage";
-import LoginPage from "./components/LogIn/Loginpage"; 'components/login/Loginpage';
+import LoginPage from "./components/LogIn/Loginpage"; 
+import RegisterPage from "./components/LogIn/RegisterPage"; 
 import  { CartProvider} from './components/Principal/CartContext'; // Asegúrate de la ruta correcta
 
 
@@ -143,6 +144,8 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
         <Route path="/cart" element={<CartPage />} />
 
         <Route path="/login" element={<LoginPage />} />
+
+        <Route path="/register" element={<RegisterPage/>} />
 
       </Routes>
 

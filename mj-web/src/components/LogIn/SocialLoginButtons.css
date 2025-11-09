@@ -1,0 +1,66 @@
+/* LoginPage.css (Añadir a tus estilos existentes) */
+
+.social-login-container {
+    /* 🔑 Contenedor que pone los botones uno al lado del otro */
+    display: flex;
+    justify-content: space-between; 
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.social-button {
+    /* Base compartida */
+    flex: 1; /* Ocupan el mismo ancho */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.social-button:hover {
+    opacity: 0.9;
+}
+
+.social-button .icon {
+    margin-right: 10px;
+    line-height: 1; /* Asegura que el ícono no afecte la altura del texto */
+    display: flex;
+    align-items: center;
+}
+
+/* --- Estilos Específicos de Google --- */
+.google-button {
+    background-color: white;
+    color: #3c4043; /* Texto oscuro de Google */
+    border: 1px solid #dadce0;
+    /* Fuente: Si deseas la fuente oficial, deberías importarla (Roboto/Google Sans) */
+    font-family: Arial, sans-serif; 
+}
+
+/* --- Estilos Específicos de Facebook --- */
+.facebook-button {
+    background-color: #1877f2; /* Azul oficial de Facebook */
+    color: white;
+    border: 1px solid #1877f2;
+    /* Para el ícono 'f' se usa font-size grande */
+}
+
+.facebook-button .icon {
+    /* Estilo específico para la 'f' si no usas un ícono de fuente */
+    font-size: 1.2rem; 
+    font-family: Arial, sans-serif; 
+    font-weight: 900; 
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+    .social-login-container {
+        flex-direction: column; /* Apila los botones verticalmente */
+    }
+}
