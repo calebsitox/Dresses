@@ -66,11 +66,13 @@
 
 /* Media */
 .process-image {
-    width: 100%;
+    display: block;
+    width: 70%;
     height: auto;
     display: block;
     border-radius: 5px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    margin: auto;
+
 }
 
 /* ================================== */

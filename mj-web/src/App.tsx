@@ -9,6 +9,10 @@ import Footer from "./components/Principal/Footer"
 import CartPage from "./components/Principal/CartPage";
 import LoginPage from "./components/LogIn/Loginpage"; 
 import RegisterPage from "./components/LogIn/RegisterPage"; 
+import Service from "./components/ServicesPage/Service";
+import img1 from "./assets/img1.png"
+import img2 from "./assets/img2.png"
+import img3 from "./assets/img3.png"
 import  { CartProvider} from './components/Principal/CartContext'; // Asegúrate de la ruta correcta
 
 
@@ -95,7 +99,7 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
         descubre cómo cada puntada cuenta la historia de una artesanía hecha
         a mano en [Tu Ciudad]."
                 sectionNumber={0}
-                image=""
+                image={img1}
                 button="VER MANIFIESTO COMPLETO"
                 isReversed={false}
               />
@@ -112,7 +116,7 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
                 message2="Los tonos neutros y la textura única de la tela son perfectos para
             un **armario cápsula** elegante y consciente. ¡Stock limitado!"
                 sectionNumber={1}
-                image=""
+                image={img2}
                 button="VER LA COLECCIÓN AHORA"
                 isReversed={true}
               />
@@ -129,7 +133,7 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
         descubre cómo cada puntada cuenta la historia de una artesanía hecha
         a mano en [Tu Ciudad]."
                 sectionNumber={2}
-                image=""
+                image={img3}
                 button="VER MANIFIESTO COMPLETO"
                 isReversed={false}
               />
@@ -146,6 +150,8 @@ const FADE_START_POINT_MULTIPLIER: number = 0.9;
         <Route path="/login" element={<LoginPage />} />
 
         <Route path="/register" element={<RegisterPage/>} />
+
+        <Route path="/service" element={<Service/>} />
 
       </Routes>
 

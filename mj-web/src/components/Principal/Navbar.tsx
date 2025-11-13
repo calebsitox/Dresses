@@ -42,9 +42,9 @@ function Navbar() {
           <Link to="/coleccion" className="nav-link">
             Colección
           </Link>
-          <a href="#contact" className="nav-link">
+          <Link to="/service" className="nav-link">
             Servicios
-          </a>
+          </Link>
 
           <div className="login-shopcart-container">
             <ShopCart totalItems={totalItems} />
