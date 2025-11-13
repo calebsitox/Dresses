@@ -43,7 +43,7 @@ function Navbar() {
             Colección
           </Link>
           <a href="#contact" className="nav-link">
-            Contacto
+            Servicios
           </a>
 
           <div className="login-shopcart-container">

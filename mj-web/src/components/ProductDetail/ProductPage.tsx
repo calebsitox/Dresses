@@ -1,7 +1,7 @@
 import FilterProducts from "./FilterProducts"
 //import { useState } from 'react';
 import ProductGrid from "./ProductGrid"
-import "../Cards/Card.css"
+import "./Cards/Card.css"
 
 function ProductPage (){
 
