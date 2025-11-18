@@ -2,48 +2,49 @@
 
 .service-page {
     min-height: 70vh;
-    padding: 0 5%;
-    background-color: #f0f0f0;
     color: #1a1a1a;
     display: flex;
     gap: 50px;
-    max-width: 1400px;
-    margin: 70px 120px ;
+    max-width: 100%;
+    margin: 70px 120px;
     margin-bottom: 0%;
     border-bottom: #1a1a1a 2px solid;
-}
+    /* 🔑 CORRECCIÓN: Centra la caja de texto sobre el fondo */
+    align-items: center; 
+    justify-content: flex-start; /* Alinea la caja a la izquierda */
 
-.service-item-left,
-.service-item {
-    flex: 0 0 50%;
-    box-sizing: border-box;
-}
-
-
-.main-tittle {
-    font-size: 2.5rem;
-    line-height: 1.1;
-    font-weight: 100; 
-    font-family: 'Yellowtail', cursive;
-    text-align: left;
-    margin: 40px 0;
+    /* 🔑 CORRECCIÓN: Estilos para la imagen de fondo */
+    background-size: cover; /* Hace que la imagen cubra todo el div */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    position: relative;
+    color: #1a1a1a;
+    background-color: #f0f0f0;
 }
 
 .service-item-left {
-    position: relative;
-    width: 100%;
+  padding: 40px 5%;
+  color: #1a1a1a;
+  background-color: rgba(240, 240, 240, 0.9); /* Blanco 90% opaco */
+  flex-basis: 50%; /* Ocupa el 50% del ancho */
+    max-width: 600px;
+    
+    color: #1a1a1a;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.6rem;
-    line-height: 1.6;
-    min-height: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
-.cta-button {
+.main-title {
+  font-family: 'Yellowtail', cursive;
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #000000;
+}
 
+
+.cta-button {
     background-color: #000000;
     color: rgb(255, 255, 255);
     padding: 10px;
@@ -57,40 +58,41 @@
     letter-spacing: 1px;
     text-transform: uppercase; 
     font-family: 'Montserrat', sans-serif;
-
 }
 
-.service-item-left p {
-    font-size: 0.9rem;
-    bottom: 30px;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    text-align: start;
+
+.cta-button:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 
-.service-item {
-    width: 100%;
-    padding-top: 70px;
+.animated-paragraph {
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-.service-item h2{
-    text-align: right;
-    width: 100%;
-    padding: 0px 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem;
-    line-height: 1.6;
-    margin-bottom: 0px;
-
+.highlight-paragraph {
+  margin-top: 30px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #444;
 }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .flecha-abajo {
-    width: 100%;
-    padding-right: 150px;
+
     color: #1a1a1a;
     font-size: 3.5rem;
-    text-align: end;
+    text-align: center;
 }
 
 .image-container {
@@ -120,6 +122,7 @@
     display: flex;
     flex-direction: row;
     padding: 0px 120px ;
+    flex-wrap: wrap;
 
 }
 .container-image2,
@@ -127,22 +130,93 @@
     flex: 0 0 50%;
     box-sizing: border-box;
     background-color: #f0f0f0;
+    min-width: 300px;
 }
 
 .image2 {
-    width: 600px;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    display: block; /* Evita espacios en blanco extra */
+    object-fit: cover;
 
 }
 
 .details {
-    padding: 40px;
+    padding: 80px 40px;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     background-color: #f0f0f0;
     color: #1a1a1a;
 }
+.gallery {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  height: 760px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  padding-bottom: 20px;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay span {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  background-color: rgba(0,0,0,0.4);
+  padding: 8px 16px;
+  border-radius: 8px;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(1px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 
 @media (max-width: 768px) {
   .service-page {
@@ -152,4 +226,95 @@
   .service-item-right {
     flex: 0 0 100%;
   }
+
+.service-details-section {
+        /* 1. Cambiamos la dirección para que se apilen verticalmente */
+        flex-direction: column; 
+        
+        /* 2. Reducimos el padding horizontal excesivo para móviles */
+        padding: 40px 20px; 
+    }
+
+    .container-image2,
+    .details {
+        /* 3. Hacemos que cada sección ocupe el 100% del ancho */
+        flex-basis: 100%; 
+        min-width: 0; /* Reseteamos el min-width en móvil */
+    }
+
+    .details {
+        /* 4. (Opcional) Ajustamos el padding de los detalles para móvil */
+        padding: 40px 20px;
+    }
+
+
+    /* --- SECCIÓN 1 --- */
+    .service-page {
+        /* Apila los elementos verticalmente */
+        flex-direction: column; 
+        /* Reduce márgenes para pantallas pequeñas */
+        margin: 40px 20px; 
+        gap: 20px;
+    }
+
+    .service-item-left {
+        padding: 20px; /* Reduce padding */
+    }
+
+    .main-title {
+        font-size: 2.2rem; /* Reduce tamaño de fuente */
+    }
+
+    .cta-button {
+        width: 100%; /* Botón ocupa todo el ancho */
+    }
+
+    .image-container {
+        padding: 0;
+    }
+
+    .image-container img {
+        /* Resetea la traslación negativa que rompía el layout */
+        translate: 0; 
+        max-width: 100%;
+    }
+
+    /* --- SECCIÓN 2 --- */
+    .service-details-section {
+        /* Apila los elementos verticalmente */
+        flex-direction: column; 
+        /* Reduce padding */
+        padding: 40px 20px; 
+    }
+
+    .container-image2,
+    .details {
+        /* Ocupan todo el ancho en móvil */
+        flex-basis: 100%; 
+        min-width: 0; /* Resetea el min-width */
+    }
+    
+    .image2 {
+        height: 300px; /* Fija una altura para la imagen en móvil */
+    }
+
+    .details {
+        padding: 40px 20px; /* Reduce padding */
+    }
+
+    /* --- SECCIÓN 3: GALERÍA --- */
+    .gallery {
+        /* Apila los elementos verticalmente */
+        flex-direction: column; 
+    }
+
+    .gallery-item {
+        /* Reduce la altura para que no ocupe toda la pantalla */
+        height: 400px; 
+    }
+
+    .overlay span {
+        font-size: 1.1rem; /* Reduce tamaño de fuente */
+    }
 }
+
