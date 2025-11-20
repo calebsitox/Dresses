@@ -23,7 +23,6 @@ public class UserService {
 	
 	public User resgisterUser(String name, String email, String password, List<Integer> roles) {
 		User user = new User();
-		
 		return user;
 	}
 	

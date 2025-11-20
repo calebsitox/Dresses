@@ -1,1 +1,6 @@
+com\web\lajose\domain\entities\Role.class
+com\web\lajose\domain\repository\RoleRepository.class
+com\web\lajose\service\UserService.class
+com\web\lajose\domain\entities\User.class
+com\web\lajose\domain\repository\UserRepository.class
 com\web\lajose\LajoseApplication.class
