@@ -1,17 +1,24 @@
 package com.web.lajose.domain.entities;
 
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-
 import java.util.Collection;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users")
-@Getter 
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -24,8 +31,11 @@ public class User {
     private String username; // O email
 
     private String password;
+    
+    @Column(unique = true)
+    private String email;
 
-    private boolean enabled = true; // Si el usuario está activo o no
+    private boolean enabled = true; 
 
     // Relación Many-to-Many: un usuario puede tener varios roles
     @ManyToMany(fetch = FetchType.EAGER)

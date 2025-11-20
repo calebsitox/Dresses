@@ -1,8 +1,13 @@
 package com.web.lajose.domain.repository;
 
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.web.lajose.domain.entities.Role;
+
 @Repository
-public class RoleRepository {
+public interface RoleRepository  extends JpaRepository<Role, Integer>{
 
 }
