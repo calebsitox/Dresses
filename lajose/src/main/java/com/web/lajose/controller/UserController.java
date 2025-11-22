@@ -18,11 +18,20 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@PostMapping
+	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@RequestBody UserDTO userDTO) {
 
 		String token = this.userService.resgisterUser(userDTO.getName(), userDTO.getUserName(), userDTO.getEmail(),
 				userDTO.getPassword(), userDTO.getRoles());
+
+		return new ResponseEntity<>(token, HttpStatus.CREATED);
+	}
+	
+	
+	@PostMapping("/login")
+	public ResponseEntity<?> loginUser(@RequestBody UserDTO userDTO) {
+
+		String token = this.userService.loginUser(userDTO.getEmail(), userDTO.getPassword());
 
 		return new ResponseEntity<>(token, HttpStatus.OK);
 	}
