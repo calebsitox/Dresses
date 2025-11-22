@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.web.lajose.config.util.JwtUtil;
 import com.web.lajose.domain.entities.Role;
 import com.web.lajose.domain.entities.User;
 import com.web.lajose.domain.repository.RoleRepository;
@@ -22,14 +23,19 @@ public class UserService {
 	@Autowired
 	RoleRepository roleRepository;	
 	
+	@Autowired
+	JwtUtil jwtUtil;
+	
 	//NORMAL REGISTER
 	
 	
-	public User resgisterUser(String name, String email, String password, List<Integer> rolesIds) {
+	public String resgisterUser(String name, String userName, String email, String password, List<Integer> rolesIds) {
 		User user = new User();
-		user.setUsername(name);
+		user.setName(name);
+		user.setUserName(userName);
 		user.setEmail(email);
-		user.setPassword(new BCryptPasswordEncoder().encode(password));
+		user.setEnabled(true);
+		user.setPasswordHash(new BCryptPasswordEncoder().encode(password));
 		
 		Set<Role> roles = rolesIds.stream()
 		            .map(roleId -> roleRepository.findById(roleId)
@@ -37,11 +43,19 @@ public class UserService {
 		            .collect(Collectors.toSet());
 		
 		user.setRoles(roles);
-
 		userRepository.save(user);
 		
-		return user;
+	    List<String> roleNames = roles.stream()
+	            .map(Role::getName)
+	            .collect(Collectors.toList());
+
+		
+		String token = this.jwtUtil.generateToken(userName, roleNames, email);
+		
+		return token;
 	}
+	
+	
 	
 	
 	//GOOGLE AND FACEBOOK REGISTER-LOGIN

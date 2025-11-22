@@ -12,7 +12,7 @@ import java.util.Collection;
 @Entity
 @Table(name = "roles")
 @Data
-@AllArgsConstructor
+
 public class Role {
 
     @Id
@@ -23,8 +23,19 @@ public class Role {
 
     @ManyToMany(mappedBy = "roles")
     private Collection<User> users;
+    
+    private String description;
 
-    public Role(String name) {
-        this.name = name;
+    // 🔑 Constructor vacío requerido por JPA
+    public Role() {
     }
+
+    // Constructor con parámetros (opcional)
+    public Role(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+
+
 }

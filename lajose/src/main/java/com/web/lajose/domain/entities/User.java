@@ -27,10 +27,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name; 
+    
     @Column(unique = true)
-    private String username; // O email
+    private String userName; 
 
-    private String password;
+    private String passwordHash;
     
     @Column(unique = true)
     private String email;

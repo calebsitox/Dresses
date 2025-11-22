@@ -1,6 +1,11 @@
+C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\config\SecurityConfig.java
+C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\config\util\JwtUtil.java
+C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\controller\UserController.java
+C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\domain\dtos\UserDTO.java
 C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\domain\entities\Role.java
 C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\domain\entities\User.java
 C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\domain\repository\RoleRepository.java
 C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\domain\repository\UserRepository.java
 C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\LajoseApplication.java
+C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\service\UserDetailsServiceImpl.java
 C:\Users\Caleb\TFG\Dresses\lajose\src\main\java\com\web\lajose\service\UserService.java

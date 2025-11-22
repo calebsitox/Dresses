@@ -1,0 +1,8 @@
+,--.                ,--.                     ,--.   ,--.,------.,-----.   
+|  |    ,--,--.     |  | ,---.  ,---. ,---.  |  |   |  ||  .---'|  |) /_  
+|  |   ' ,-.  |,--. |  || .-. |(  .-'| .-. : |  |.'.|  ||  `--, |  .-.  \ 
+|  '--.\ '-'  ||  '-'  /' '-' '.-'  `)   --. |   ,'.   ||  `---.|  '--' / 
+`-----' `--`--' `-----'  `---' `----' `----' '--'   '--'`------'`------'  
+                                                                          
+${Ansi.YELLOW}La Jose Backend:${Ansi.DEFAULT} ${Ansi.BRIGHT_GREEN}${lajose} ${application.version}${Ansi.DEFAULT}
+Powered by ${Ansi.BLUE}Spring Boot ${spring-boot.version}${Ansi.DEFAULT} | Versión de Java: ${Ansi.MAGENTA}${java.version}${Ansi.DEFAULT}
